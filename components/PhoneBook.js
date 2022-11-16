@@ -1,6 +1,7 @@
 import ContactsList from './ContactsList';
 
-function PhoneBook() {
+function PhoneBook({ contacts }) {
+  console.log(contacts);
   return (
     <div className='bg-white md:shadow-md md:rounded-md'>
       <header className='flex flex-row justify-between mx-8 border-b pb-2 md:border-0 select-none'>
@@ -9,7 +10,7 @@ function PhoneBook() {
         <button>New</button>
       </header>
       {/* SearchBar? */}
-      <ContactsList />
+      <ContactsList contacts={contacts} />
     </div>
   );
 }
