@@ -4,7 +4,7 @@ function ContactsList({ contacts }) {
   return (
     <ul
       role='list'
-      className='md:divide-y divide-gray-200 h-fit overflow-y-auto border-b'
+      className='md:divide-y divide-gray-200 h-fit overflow-y-auto border-b select-none'
     >
       {contacts.map((contact) => (
         <Contact key={contact.id}>{contact.name}</Contact>
