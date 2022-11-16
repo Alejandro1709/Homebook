@@ -1,5 +1,8 @@
 import PageLayout from '../components/PageLayout';
 import PhoneBook from '../components/PhoneBook';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export default function Home({ initialContacts }) {
   return (
@@ -14,32 +17,10 @@ export default function Home({ initialContacts }) {
 }
 
 export async function getServerSideProps() {
-  const initialContacts = [
-    {
-      id: 1,
-      name: 'John Doe',
-      phone: '555-555-5555',
-      email: 'john@mail.com',
-      address: '123 Main St',
-      city: 'New York',
-      state: 'NY',
-      zip: '10001',
-    },
-    {
-      id: 2,
-      name: 'Jane Doe',
-      phone: '555-555-5555',
-      email: 'jane@mail.com',
-      address: '123 Main St',
-      city: 'New York',
-      state: 'NY',
-      zip: '10001',
-    },
-  ];
-
+  const contacts = await prisma.contact.findMany();
   return {
     props: {
-      initialContacts,
+      initialContacts: contacts,
     },
   };
 }
