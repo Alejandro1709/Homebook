@@ -1,9 +1,26 @@
 import PageLayout from '../components/PageLayout';
+import PhoneBook from '../components/PhoneBook';
+import { PrismaClient } from '@prisma/client';
 
-export default function Home() {
+const prisma = new PrismaClient();
+
+export default function Home({ initialContacts }) {
   return (
     <PageLayout title='Homebook | Home'>
-      <h1>Hello</h1>
+      <div className='max-w-screen-md mx-auto'>
+        <section className='py-4'>
+          <PhoneBook contacts={initialContacts} />
+        </section>
+      </div>
     </PageLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const contacts = await prisma.contact.findMany();
+  return {
+    props: {
+      initialContacts: contacts,
+    },
+  };
 }
