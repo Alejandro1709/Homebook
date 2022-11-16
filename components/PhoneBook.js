@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ContactsList from './ContactsList';
 
 function PhoneBook({ contacts }) {
@@ -6,7 +7,7 @@ function PhoneBook({ contacts }) {
       <header className='flex flex-row justify-between mx-8 border-b pb-2 md:border-0 select-none'>
         <button>Edit</button>
         <h2 className='text-2xl font-semibold text-gray-800'>My List</h2>
-        <button>New</button>
+        <Link href='/contacts/new'>New</Link>
       </header>
       {/* SearchBar? */}
       <ContactsList contacts={contacts} />
