@@ -20,7 +20,7 @@ function PageLayout({
         </div>
       </header>
 
-      <main className=''>{children}</main>
+      <main className='max-w-screen-md mx-auto'>{children}</main>
     </>
   );
 }

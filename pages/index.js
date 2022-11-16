@@ -7,11 +7,9 @@ const prisma = new PrismaClient();
 export default function Home({ initialContacts }) {
   return (
     <PageLayout title='Homebook | Home'>
-      <div className='max-w-screen-md mx-auto'>
-        <section className='py-4'>
-          <PhoneBook contacts={initialContacts} />
-        </section>
-      </div>
+      <section className='py-4'>
+        <PhoneBook contacts={initialContacts} />
+      </section>
     </PageLayout>
   );
 }
