@@ -12,7 +12,15 @@ function PageLayout({
         <meta name='description' content={metaDesc} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='h-screen'>{children}</main>
+
+      <header className='flex justify-center items-center text-center bg-gray-100 h-[100px]'>
+        <div className='flex flex-col gap-[6px]'>
+          <h1 className='text-4xl font-bold'>Homebook</h1>
+          <p className='text-xl'>A Simple Web App to store your contacts.</p>
+        </div>
+      </header>
+
+      <main className=''>{children}</main>
     </>
   );
 }
